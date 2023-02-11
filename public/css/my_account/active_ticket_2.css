@@ -1,0 +1,219 @@
+:root {
+    --surface-color: #9bc83b;
+    --curve: 20;
+  }
+  
+  * {
+    box-sizing: border-box;
+  }
+  
+  /* body {
+    font-family: 'Noto Sans JP', sans-serif;
+    background-color: #fef8f8;
+  }
+   */
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin: 2rem 5vw;
+    padding: 0;
+    list-style-type: none;
+  }
+  
+  .card {
+    position: relative;
+    display: block;
+    height: 100%;  
+    border-radius: calc(var(--curve) * 1px);
+    overflow: hidden;
+    text-decoration: none;
+  }
+  
+  .card__image {      
+    width: 50%;
+    height: 250px;
+    padding: 20px 20px 100px;
+    float: left;
+  }
+
+  .text_card {
+    border-left: 3px solid #ed1b2f;
+    height: 170px; 
+    margin-top: 10px; 
+    overflow: hidden;    
+  }
+  
+  .card__overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;      
+    border-radius: calc(var(--curve) * 0.5px);    
+    background-color: var(--surface-color);      
+    transform: translateY(100%);
+    transition: .2s ease-in-out;
+  }
+  
+  .card:hover .card__overlay {
+    transform: translateY(0);
+  }
+  
+  .card__header {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    padding: 0.5em 1em;
+    border-radius: calc(var(--curve) * 1px) calc(var(--curve) * 1px) 0 0;    
+    background-color: var(--surface-color);
+    transform: translateY(-100%);
+    transition: .2s ease-in-out;
+  }
+  
+  .card__arc {
+    width: 80px;
+    height: 80px;
+    position: absolute;
+    bottom: 99%;
+    right: 0;      
+    z-index: 1;
+  }
+  
+  .card__arc path {
+    fill: var(--surface-color);
+    d: path("M 40 80 c 22 0 40 -22 40 -40 v 40 Z");
+  }       
+  
+  .card:hover .card__header {
+    transform: translateY(0);
+  }
+  
+  .card__thumb {
+    flex-shrink: 0;
+    width: 50px;
+    height: 50px;      
+    border-radius: 50%;      
+  }
+  
+  .card__title {
+    font-size: 18px;
+    margin: 0 0 .1em;
+    color: white;
+  }
+  
+  .card__tagline {
+    display: block;
+    margin: 1em 0;
+    font-family: "MockFlowFont";  
+    font-size: .8em; 
+    color: white;  
+  }
+  
+  .card__status {
+    font-size: 13px;
+    color: white;
+  }
+  
+  .card__description {
+    padding: 0 2em 2em;
+    margin: 0;
+    color: white;
+    font-family: "MockFlowFont";   
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+  }    
+
+  .kursi_text {
+    margin-left: 30px; 
+    margin-top: 5%; 
+    font-family: 'Noto Sans JP', sans-serif; 
+    font-size: 20x;
+  }
+
+  .kode_text {
+    margin-left: 30px; 
+    margin-top: 10px; 
+    font-family: 'Noto Sans JP', sans-serif; font-size: 28px;
+    font-weight: bold;    
+  }  
+
+  .tgl_text {
+    margin-left: 30px; 
+    margin-top: 10px;
+    font-size: 18px;
+  }
+
+  .mb-4 {
+    margin-left: 85px; 
+    margin-top: 2%; 
+    font-family: 'Noto Sans JP', sans-serif;    
+  }
+
+  @media screen and (max-width: 600px) {
+    .card__image {      
+      width: 50%;
+      height: 180px;
+      padding: 40px 20px 100px;
+      float: left;
+    }
+  
+    .kursi_text {
+      margin-left: 10px; 
+      margin-top: 10%; 
+      font-family: 'Noto Sans JP', 
+      sans-serif; font-size: 16px;
+    }
+
+    .kode_text {
+      margin-left: 10px; 
+      margin-top: 5px; 
+      font-family: 'Noto Sans JP', sans-serif; font-size: 18px;
+      font-weight: bold;    
+    }    
+
+    .tgl_text {
+      margin-left: 10px; 
+      margin-top: 5px;
+      font-size: 11px;
+    }
+  
+    .text_card {
+      border-left: 2px solid #ed1b2f;
+      height: 100px; 
+      margin-top: 10px; 
+      overflow: hidden;    
+    }
+
+    .card__title {
+      font-size: 15px;
+      margin: 0 0 .1em;
+      color: white;
+    }
+    
+    .card__status {
+      font-size: 12px;
+      color: white;
+    }
+  
+    .card__description {
+      padding: 0 2em 2em;
+      margin: 0;
+      color: white;
+      font-family: "MockFlowFont";   
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 3;
+      overflow: hidden;
+      font-size: 12px;
+    }     
+
+    .mb-4 {
+      margin-left: 20px; 
+      margin-top: 2%; 
+      font-family: 'Noto Sans JP', sans-serif;    
+    }    
+  }

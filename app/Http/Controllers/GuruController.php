@@ -45,7 +45,7 @@ class GuruController extends Controller
             'nip'=>$request->input('nip'),
             'name'=>$request->input('name'),
             'email'=>$request->input('email'),
-            'password'=>$request->input('password'),
+            'password'=> Hash::make($request->password)
 
         ]);
 
@@ -71,7 +71,7 @@ class GuruController extends Controller
             'nip'=>$request->nip,
             'name'=>$request->name,
             'email'=>$request->email,
-            'password'=>$request->password
+            'password'=> Hash::make($request->password)
 	]);
 
 	    return redirect('/guru');

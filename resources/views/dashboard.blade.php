@@ -39,7 +39,7 @@ Dashboard
                       <div class="col mr-2">
                           <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                              <a href="{{ route('siswa') }}" class="text-xs font-weight-bold text-primary text-uppercase mb-1">Siswa</a> </div>
-                             
+                             {{ $siswa }}
                           <div class="h5 mb-0 font-weight-bold text-gray-800"></div>
                       </div>
                   </div>
@@ -54,7 +54,7 @@ Dashboard
                       <div class="col mr-2">
                           <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                              <a href="{{ route('guru') }}" class="text-xs font-weight-bold text-primary text-uppercase mb-1">Guru</a> </div>
-                            
+                            {{ $guru }}
                           <div class="h5 mb-0 font-weight-bold text-gray-800"></div>
                       </div>
                   </div>

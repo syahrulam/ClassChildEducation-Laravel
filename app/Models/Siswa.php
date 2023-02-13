@@ -7,17 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class Siswa extends Model
 {
-    protected $guard = 'siswa';
     protected $table = 'siswa';
-    protected $fillable = [
-        'nis',
-        'password',
-        'namasiswa',
-        'kelas',
-    ];
+    protected $fillable = ['nis','password','namasiswa','kelas'];
 
     public function game()
     {
-        return $this->belongsToMany(Game::class)->withPivot(['nilai', 'created_at', 'updated_at']);
+        return $this->belongsToMany(Game::class)->withPivot(['nilai','created_at','updated_at']);
     }
+
 }
+

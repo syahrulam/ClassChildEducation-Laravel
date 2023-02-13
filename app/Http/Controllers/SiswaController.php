@@ -52,7 +52,8 @@ class SiswaController extends Controller
             'nis'=>$request->input('nis'),
             'namasiswa'=>$request->input('namasiswa'),
             'kelas'=>$request->input('kelas'),
-            'password'=>$request->input('password'),
+            'password'=> Hash::make($request->password)
+            
 
         ]);
 
@@ -78,7 +79,7 @@ class SiswaController extends Controller
             'nis'=>$request->nis,
             'namasiswa'=>$request->namasiswa,
             'kelas'=>$request->kelas,
-            'password'=>$request->password
+            'password'=> Hash::make($request->password)
 	]);
 
 	    return redirect('/siswa');

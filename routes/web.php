@@ -49,7 +49,6 @@ Route::middleware(['auth'])->group(function(){
 
     // Guru Set
     Route::get('/guru', [GuruController::class, 'index'])->name('guru');
-    Route::get('/lihat-nilai', [GuruController::class, 'lihatnilai'])->name('lihat-nilai');
     Route::get('/guru-tambah', [GuruController::class, 'tambahguru'])->name('guru-tambah');
     Route::post('/guru-prosestambah', [GuruController::class, 'addprosesguru'])->name('guru-prosestambah');
     Route::get('/guru/{id}/edit-guru', [GuruController::class, 'editguru'])->name('edit-guru');

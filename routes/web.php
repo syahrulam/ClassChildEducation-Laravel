@@ -8,6 +8,7 @@ use App\Http\Controllers\SiswaController;
 use App\Http\Controllers\MonitorController;
 use App\Http\Controllers\CceController;
 use App\Http\Controllers\ApiController;
+use App\Http\Controllers\IndexController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,8 +22,7 @@ use App\Http\Controllers\ApiController;
 */
 
 //Laravel
-Route::get('/', [HomeController::class, 'index'])->name('/');
-Route::get('/home', [HomeController::class, 'index'])->name('/home');
+Route::get('/', [IndexController::class, 'index'])->name('/');
 
 Route::get('login', [AuthController::class, 'login'])->name('login');
 
@@ -62,5 +62,3 @@ Route::middleware(['auth'])->group(function(){
     });
 });
 Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

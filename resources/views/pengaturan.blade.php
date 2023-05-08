@@ -8,7 +8,7 @@ Dashboard
     <div class="section-header">
         <div class="row col-12">
             <div class="col-9">
-                <h1>Kategori Game</h1>
+                <h1>Pengaturan</h1>
             </div>
             <div class="col-3">
                 Tanggal Hari ini: <b class="" id="date"></b>
@@ -22,7 +22,7 @@ Dashboard
             <div class="col-12">
                 <div class="card">
                     <div class="card-header">
-                        <h4>Kategori Game</h4>
+                        <h4>Pengaturan</h4>
                     </div>
                     <div class="card-body">
                         <div class="row">
@@ -31,20 +31,20 @@ Dashboard
                                     <thead>
                                         <tr role="row">
                                             <th>No</th>
-                                            <th>Kategori Game</th>
-                                            <th>Keterangan</th>
-                                            <th>Dibuat</th>
+                                            <th>Nama</th>
+                                            <th>Role</th>
+                                            <th>Email</th>
+                                            <th>Aksi</th>
                                         </tr>
                                     </thead>
                                     <tbody id="listMonitor">
-                                        @foreach($vargame as $b)
                                         <tr>
-                                            <td>{{$loop->iteration}}</td>
-                                            <td>{{$b->kategorigame}}</td>
-                                            <td>{{$b->keterangan}}</td>
-                                            <td>{{$b->created_at}}</td>
+                                            <td>1</td>
+                                            <td>a</td>
+                                            <td>b</td>
+                                            <td>c</td>
+                                            <td>d</td>
                                         </tr>
-                                        @endforeach
                                     </tbody>
                                 </table>
                             </div>

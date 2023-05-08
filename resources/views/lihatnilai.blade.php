@@ -31,7 +31,6 @@ Dashboard
                                             <th>Kategori Game</th>
                                             <th>Nilai</th>
                                             <th>Dibuat</th>
-                                            <th>Diperbarui</th>
                                         </tr>
                                     </thead>
                                     <tbody id="listMonitor">
@@ -43,8 +42,7 @@ Dashboard
                                             <td>{{$siswa->namasiswa}}</td>
                                             <td>{{$game->kategorigame}}</td>
                                             <td>{{$game->pivot->nilai}}</td>
-                                            <td>{{$game->pivot->created_at}}</td>
-                                            <td>{{$game->pivot->updated_at}}</td>
+                                            <td>{{$siswa->created_at}}</td>
                                         </tr>
                                         @endforeach
                                         @endforeach

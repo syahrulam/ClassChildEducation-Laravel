@@ -9,14 +9,16 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use App\Models\Game;
 use App\Models\Siswa;
+use App\Models\Kelas;
 
 class SiswaController extends Controller
 {
     public function index()
     {
-        $Siswa = DB::table('siswa')->get();
+        $siswa = Siswa::with('kelas')->paginate();
+
         $return = [
-            'Siswa',
+            'siswa',
         ];
         return view('siswa', compact($return));
     }
@@ -36,7 +38,12 @@ class SiswaController extends Controller
 
     public function tambahsiswa()
     {
-        return view('tambahsiswa');
+        $kelas = Siswa::with('kelas')->paginate();
+
+        $return = [
+            'kelas',
+        ];
+        return view('tambahsiswa', compact($return));
     }
 
     public function addprosessiswa(Request $request)
@@ -44,14 +51,16 @@ class SiswaController extends Controller
         $this->validate($request,[
             'nis' => 'required',
             'namasiswa' => 'required',
-            'kelas' => 'required',
+            'kelas_id' => 'required',
+            'tahunakademik' => 'required',
             'password' => 'required',
         ]);
 
         $query = DB::table('siswa')->insert([
             'nis'=>$request->input('nis'),
             'namasiswa'=>$request->input('namasiswa'),
-            'kelas'=>$request->input('kelas'),
+            'kelas_id'=>$request->input('kelas_id'),
+            'tahunakademik'=>$request->input('tahunakademik'),
             'password'=> Hash::make($request->password)
             
 
@@ -67,9 +76,14 @@ class SiswaController extends Controller
 
     public function editsiswa($id)
     {
+        $kelas = Siswa::with('kelas')->paginate();
 
         $siswa = DB::table('siswa')->where('id',$id)->get();
-        return view('editsiswa',['siswa'=>$siswa]);
+        $return = [
+            'kelas',
+            'siswa',
+        ];
+        return view('editsiswa', compact($return));
     }
 
     public function editsiswaproses(Request $request)
@@ -78,7 +92,7 @@ class SiswaController extends Controller
 	    DB::table('siswa')->where('id',$request->id)->update([
             'nis'=>$request->nis,
             'namasiswa'=>$request->namasiswa,
-            'kelas'=>$request->kelas,
+            'kelas_id'=>$request->kelas_id,
             'password'=> Hash::make($request->password)
 	]);
 

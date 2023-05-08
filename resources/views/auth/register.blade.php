@@ -10,9 +10,9 @@
                 <div class="card-body">
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
-
+                        
                         <div class="row mb-3">
-                            <label for="nip" class="col-md-4 col-form-label text-md-end">{{ __('NIP') }}</label>
+                            <label for="nip" class="col-md-4 col-form-label text-md-end">{{ __('Nip') }}</label>
 
                             <div class="col-md-6">
                                 <input id="nip" type="text" class="form-control @error('nip') is-invalid @enderror" name="nip" value="{{ old('nip') }}" required autocomplete="nip" autofocus>
@@ -23,7 +23,7 @@
                                     </span>
                                 @enderror
                             </div>
-                        </div>                        
+                        </div>
 
                         <div class="row mb-3">
                             <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('Nama') }}</label>
@@ -52,7 +52,16 @@
                                 @enderror
                             </div>
                         </div>
-
+                        <div class="row mb-3">
+                            <label for="admin_akses" class="col-md-4 col-form-label text-md-end">{{ __('Roles') }}</label>
+                            <div class="col-md-6">
+                            <select class="form-control select choose" id="admin_akses" name="admin_akses">
+                                <option value=""> -- Pilih Roles -- </option>
+                                <option value="0">Guru</option>
+                                <option value="1">Admin</option>
+                            </select>
+                            </div>
+                        </div>
                         <div class="row mb-3">
                             <label for="password" class="col-md-4 col-form-label text-md-end">Kata Sandi</label>
 

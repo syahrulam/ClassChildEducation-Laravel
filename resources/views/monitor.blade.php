@@ -8,7 +8,7 @@ Dashboard
     <div class="section-header">
         <div class="row col-12">
             <div class="col-9">
-                <h1>Nilai Siswa</h1>
+                <h1>Data Nilai</h1>
             </div>
             <div class="col-3">
                 Tanggal Hari ini: <b class="" id="date"></b>
@@ -36,7 +36,6 @@ Dashboard
                                             <th>Kategori Game</th>
                                             <th>Nilai</th>
                                             <th>Dibuat</th>
-                                            <th>Diperbarui</th>
                                         </tr>
                                     </thead>
                                     <tbody id="listMonitor">
@@ -49,7 +48,6 @@ Dashboard
                                             <td>{{$game->kategorigame}}</td>
                                             <td>{{$game->pivot->nilai}}</td>
                                             <td>{{$game->pivot->created_at}}</td>
-                                            <td>{{$game->pivot->updated_at}}</td>
                                         </tr>
                                         @endforeach
                                         @endforeach

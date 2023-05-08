@@ -8,7 +8,7 @@ Dashboard
     <div class="section-header">
         <div class="row col-12">
             <div class="col-9">
-                <h1>Data Siswa</h1>
+                <h1>Data Soal</h1>
             </div>
             <div class="col-3">
                 Tanggal Hari ini: <b class="" id="date"></b>
@@ -22,13 +22,11 @@ Dashboard
                 <div class="card">
                     <div class="card-body">
                         <div class="card">
-                            @can('admin')
                             <div class="buttons">
-                                <button type="button" class="btn btn-primary" onclick="location.href='{{ url('siswa-tambah') }}'">
-                                    Tambah Data Siswa
+                                <button type="button" class="btn btn-primary" onclick="location.href='{{ url('soal-tambah') }}'">
+                                    Tambah Soal
                                 </button>
                             </div>
-                            @endcan
                         </div>
                         <div class="table-responsive">
                                 <div id="table-2_wrapper"
@@ -39,42 +37,39 @@ Dashboard
                                                 role="grid" aria-describedby="table-2_info">
                                                 <thead>
                                                     <tr role="row">
-                                                        <th class="sorting_disabled" rowspan="1" colspan="1"
-                                                            aria-label="Progress" style="width: 53.0125px;">No</th>
-                                                        <th class="sorting_disabled" rowspan="1" colspan="1"
-                                                            aria-label="Progress" style="width: 53.0125px;">NIS</th>
-                                                        <th class="sorting_disabled" rowspan="1" colspan="1"
-                                                            aria-label="Progress" style="width: 53.0125px;">Nama</th>
-                                                        <th class="sorting_disabled" rowspan="1" colspan="1"
-                                                            aria-label="Progress" style="width: 53.0125px;">Kelas</th>
-                                                        <th class="sorting_disabled" rowspan="1" colspan="1"
-                                                            aria-label="Progress" style="width: 53.0125px;">Tahun Akademik</th>
-                                                        <th class="sorting_disabled" rowspan="1" colspan="1"
-                                                            aria-label="Progress" style="width: 53.0125px;">Nilai</th>
-                                                        <th class="sorting_disabled" rowspan="1" colspan="1"
-                                                            aria-label="Progress" style="width: 53.0125px;">Aksi</th>
+                                                        <th>No</th>
+                                                        <th>Soal</th>
+                                                        <th>Kategori Game</th>
+                                                        <th>A</th>
+                                                        <th>B</th>
+                                                        <th>C</th>
+                                                        <th>D</th>
+                                                        <th>Jawaban</th>
+                                                        <th>Bobot Soal</th>
+                                                        <th>Gambar Soal</th>
+                                                        <th>Aksi</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody id="listUser">
-                                                    @foreach ($siswa as $a)
-                                                        <tr>
-                                                            <td>{{$loop->iteration}}</td>
-                                                            <td>{{ $a->nis }}</td>
-                                                            <td>{{ $a->namasiswa }}</td>
-                                                            <td>{{ $a->kelas->namakelas}}</td>
-                                                            <td>{{ $a->tahunakademik}}</td>  
-                                                            
-                                                            <td>
-                                                                <a href="/siswa/{{ $a->id }}/lihat-nilai"
-                                                                    class="btn btn-outline-info btn-sm">Nilai</a>
-                                                            </td>
-                                                            <td>
-                                                                <a href="/siswa/{{ $a->id }}/edit-siswa"
-                                                                    class="btn btn-outline-warning btn-sm">Edit</a>
-                                                                <a href="/siswa/{{ $a->id }}/hapus-siswa"
-                                                                    class="btn btn-outline-danger btn-sm">Hapus</a>
-                                                            </td>
-                                                        </tr>
+                                                    @foreach($dtKuis as $dtKuis)
+                                                    <tr>
+                                                        <td>{{$loop->iteration}}</td>
+                                                        <td>{{$dtKuis->soal}}</td>
+                                                        <td>{{$dtKuis->katagorigame_id}}</td>
+                                                        <td>{{$dtKuis->a}}</td>
+                                                        <td>{{$dtKuis->b}}</td>
+                                                        <td>{{$dtKuis->c}}</td>
+                                                        <td>{{$dtKuis->d}}</td>
+                                                        <td>{{$dtKuis->jawaban}}</td>
+                                                        <td>{{$dtKuis->bobot_soal}}</td>
+                                                        <td>{{$dtKuis->image_name}}</td>  
+                                                        <td>
+                                                            <a href="/soal/{{ $dtKuis->id }}/edit-soal"
+                                                                class="btn btn-outline-warning btn-sm">Edit</a>
+                                                            <a href="/soal/{{ $dtKuis->id }}/hapus-soal"
+                                                                class="btn btn-outline-danger btn-sm">Hapus</a>
+                                                        </td>
+                                                    </tr>
                                                     @endforeach
                                                 </tbody>
                                             </table>

@@ -20,7 +20,7 @@ Dashboard
             <div class="col-12">
                 <div class="card">
                     <div class="card-body">
-                        @foreach ($guru as $p)
+                        @foreach ($users as $p)
                             <form action="/guru/{id}/edit-guru-proses" method="post" enctype="multipart/form-data">
                                 {{ csrf_field() }}
                                 <input type="hidden" name="id" value="{{ $p->id }}"> <br />
@@ -33,6 +33,11 @@ Dashboard
                                     <label for="name">Nama Guru</label>
                                     <input type="text" required="required" class="form-control" name="name"
                                         value="{{ $p->name}}">
+                                </div>
+                                <div class="form-group">
+                                    <label for="role">Role</label>
+                                    <input type="text" required="required" class="form-control" name="admin_akses"
+                                        value="{{ $p->admin_akses}}">
                                 </div>
                                 <div class="form-group">
                                     <label for="Email">Email</label>

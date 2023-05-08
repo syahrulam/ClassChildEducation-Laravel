@@ -46,16 +46,19 @@ Dashboard
                                                         <th class="sorting_disabled" rowspan="1" colspan="1"
                                                             aria-label="Progress" style="width: 53.0125px;">email</th>
                                                         <th class="sorting_disabled" rowspan="1" colspan="1"
+                                                            aria-label="Progress" style="width: 53.0125px;">Akses</th>
+                                                        <th class="sorting_disabled" rowspan="1" colspan="1"
                                                             aria-label="Progress" style="width: 53.0125px;">Aksi</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody id="listUser">
-                                                    @foreach ($Guru as $a)
+                                                    @foreach ($guru as $a)
                                                         <tr>
-                                                            <td>{{ $a->id }}</td>
+                                                            <td>{{$loop->iteration}}</td>
                                                             <td>{{ $a->nip }}</td>
                                                             <td>{{ $a->name }}</td>
                                                             <td>{{ $a->email }}</td>
+                                                            <td>{{ $a->admin_akses }}</td>
                                                             <td>
                                                                 <a href="/guru/{{ $a->id }}/edit-guru"
                                                                     class="btn btn-outline-warning btn-sm">Edit</a>

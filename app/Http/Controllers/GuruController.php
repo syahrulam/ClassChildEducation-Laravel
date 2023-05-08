@@ -14,9 +14,10 @@ class GuruController extends Controller
 {
     public function index()
     {
-        $Guru = DB::table('users')->get();
+
+        $guru = DB::table('users')->get();
         $return = [
-            'Guru',
+            'guru',
         ];
         return view('guru', compact($return));
     }
@@ -24,7 +25,7 @@ class GuruController extends Controller
     public function lihatnilai($id)
     {
         $guru = DB::table('users')->where('id',$id)->get();
-        return view('monitor',['users'=>$guru]);
+        return view('monitor',['guru'=>$guru]);
     }
 
     public function tambahguru()
@@ -38,6 +39,7 @@ class GuruController extends Controller
             'nip' => 'required',
             'name' => 'required',
             'email' => 'required',
+            'admin_akses' => 'required',
             'password' => 'required',
         ]);
 
@@ -45,6 +47,7 @@ class GuruController extends Controller
             'nip'=>$request->input('nip'),
             'name'=>$request->input('name'),
             'email'=>$request->input('email'),
+            'admin_akses'=>$request->input('admin_akses'),
             'password'=> Hash::make($request->password)
 
         ]);
@@ -60,8 +63,8 @@ class GuruController extends Controller
     public function editguru($id)
     {
 
-        $guru = DB::table('users')->where('id',$id)->get();
-        return view('editguru',['guru'=>$guru]);
+        $users = DB::table('users')->where('id',$id)->get();
+        return view('editguru',['users'=>$users]);
     }
 
     public function editguruproses(Request $request)
@@ -70,6 +73,7 @@ class GuruController extends Controller
 	    DB::table('users')->where('id',$request->id)->update([
             'nip'=>$request->nip,
             'name'=>$request->name,
+            'admin_akses'=>$request->admin_akses,
             'email'=>$request->email,
             'password'=> Hash::make($request->password)
 	]);

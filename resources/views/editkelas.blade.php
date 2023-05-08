@@ -8,7 +8,7 @@ Dashboard
     <div class="section-header">
         <div class="row col-12">
             <div class="col-9">
-                <h1>Data Siswa</h1>
+                <h1>Data kelas</h1>
             </div>
             <div class="col-3">
                 Tanggal Hari ini: <b class="" id="date"></b>
@@ -20,29 +20,19 @@ Dashboard
             <div class="col-12">
                 <div class="card">
                     <div class="card-body">
-                        @foreach ($siswa as $p)
-                            <form action="/siswa/{id}/edit-siswa-proses" method="post" enctype="multipart/form-data">
+                        @foreach ($kelas as $p)
+                            <form action="/kelas/{id}/edit-kelas-proses" method="post" enctype="multipart/form-data">
                                 {{ csrf_field() }}
                                 <input type="hidden" name="id" value="{{ $p->id }}"> <br />
                                 <div class="form-group">
-                                    <label for="nis">NIS</label>
-                                    <input type="text" required="required" class="form-control" name="nis"
-                                        value="{{ $p->nis }}">
+                                    <label for="namakelas">Nama kelas</label>
+                                    <input type="text" required="required" class="form-control" name="namakelas"
+                                        value="{{ $p->namakelas}}">
                                 </div>
                                 <div class="form-group">
-                                    <label for="namasiswa">Nama Siswa</label>
-                                    <input type="text" required="required" class="form-control" name="namasiswa"
-                                        value="{{ $p->namasiswa}}">
-                                </div>
-                                <div class="form-group">
-                                    <label for="kelas">Kelas</label>
-                                    <input type="text" required="required" class="form-control" name="kelas_id"
-                                        value="{{ $p->kelas_id }}">
-                                </div>
-                                <div class="form-group">
-                                    <label for="password">Kata Sandi</label>
-                                    <input type="password" required="required" class="form-control" name="password"
-                                        value="{{ $p->password }}">
+                                    <label for="users_id">Nama Wali</label>
+                                    <input type="text" required="required" class="form-control" name="users_id"
+                                        value="{{ $p->users_id }}">
                                 </div>
                                 <div class="row">
                                     <div class="col-md-12" style="text-align  : right !important;">

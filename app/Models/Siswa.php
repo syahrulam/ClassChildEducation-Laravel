@@ -13,12 +13,19 @@ class Siswa extends Authenticatable
 
     protected $guard = 'siswa';
     protected $table = 'siswa';
-    protected $fillable = ['nis','password','namasiswa','kelas'];
+    protected $fillable = ['nis','password','namasiswa','kelas_id','tahunakademik'];
 
     public function game()
     {
         return $this->belongsToMany(Game::class)->withPivot(['nilai','created_at','updated_at']);
     }
-
+    public function kelas()
+    {
+        return $this->belongsTo(Kelas::class);
+    }
+    public function siswa()
+    {
+        return $this->hasMany(Siswa::class);
+    }
 }
 

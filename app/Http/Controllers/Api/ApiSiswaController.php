@@ -6,9 +6,9 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Auth;
 
-class MasukController extends Controller
+class ApiSiswaController extends Controller
 {
-    public function login(Request $request)
+    public function loginSiswa(Request $request)
     {
         $input = $request->all();
 
@@ -28,10 +28,12 @@ class MasukController extends Controller
         }
     }
 
-    public function userDetails()
+    public function siswaDetails()
     {
         $user = Auth::user();
         return response()->json(['data' => $user]);
 
     }
+
+
 }

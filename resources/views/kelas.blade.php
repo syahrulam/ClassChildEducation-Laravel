@@ -8,7 +8,7 @@ Dashboard
     <div class="section-header">
         <div class="row col-12">
             <div class="col-9">
-                <h1>Data Siswa</h1>
+                <h1>Data Kelas</h1>
             </div>
             <div class="col-3">
                 Tanggal Hari ini: <b class="" id="date"></b>
@@ -22,13 +22,11 @@ Dashboard
                 <div class="card">
                     <div class="card-body">
                         <div class="card">
-                            @can('admin')
                             <div class="buttons">
-                                <button type="button" class="btn btn-primary" onclick="location.href='{{ url('siswa-tambah') }}'">
-                                    Tambah Data Siswa
+                                <button type="button" class="btn btn-primary" onclick="location.href='{{ url('kelas-tambah') }}'">
+                                    Tambah Data Kelas
                                 </button>
                             </div>
-                            @endcan
                         </div>
                         <div class="table-responsive">
                                 <div id="table-2_wrapper"
@@ -42,39 +40,29 @@ Dashboard
                                                         <th class="sorting_disabled" rowspan="1" colspan="1"
                                                             aria-label="Progress" style="width: 53.0125px;">No</th>
                                                         <th class="sorting_disabled" rowspan="1" colspan="1"
-                                                            aria-label="Progress" style="width: 53.0125px;">NIS</th>
+                                                            aria-label="Progress" style="width: 53.0125px;">Nama Kelas</th>
                                                         <th class="sorting_disabled" rowspan="1" colspan="1"
-                                                            aria-label="Progress" style="width: 53.0125px;">Nama</th>
+                                                            aria-label="Progress" style="width: 53.0125px;">Jumlah Siswa</th>
                                                         <th class="sorting_disabled" rowspan="1" colspan="1"
-                                                            aria-label="Progress" style="width: 53.0125px;">Kelas</th>
-                                                        <th class="sorting_disabled" rowspan="1" colspan="1"
-                                                            aria-label="Progress" style="width: 53.0125px;">Tahun Akademik</th>
-                                                        <th class="sorting_disabled" rowspan="1" colspan="1"
-                                                            aria-label="Progress" style="width: 53.0125px;">Nilai</th>
+                                                            aria-label="Progress" style="width: 53.0125px;">Nama Wali</th>
                                                         <th class="sorting_disabled" rowspan="1" colspan="1"
                                                             aria-label="Progress" style="width: 53.0125px;">Aksi</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody id="listUser">
-                                                    @foreach ($siswa as $a)
-                                                        <tr>
-                                                            <td>{{$loop->iteration}}</td>
-                                                            <td>{{ $a->nis }}</td>
-                                                            <td>{{ $a->namasiswa }}</td>
-                                                            <td>{{ $a->kelas->namakelas}}</td>
-                                                            <td>{{ $a->tahunakademik}}</td>  
-                                                            
-                                                            <td>
-                                                                <a href="/siswa/{{ $a->id }}/lihat-nilai"
-                                                                    class="btn btn-outline-info btn-sm">Nilai</a>
-                                                            </td>
-                                                            <td>
-                                                                <a href="/siswa/{{ $a->id }}/edit-siswa"
-                                                                    class="btn btn-outline-warning btn-sm">Edit</a>
-                                                                <a href="/siswa/{{ $a->id }}/hapus-siswa"
-                                                                    class="btn btn-outline-danger btn-sm">Hapus</a>
-                                                            </td>
-                                                        </tr>
+                                                    @foreach($kelas as $kelas)
+                                                    <tr>
+                                                        <td>{{$loop->iteration}}</td>
+                                                        <td>{{$kelas->namakelas}}</td>  
+                                                        <td>{{ $siswa }}</td>
+                                                        <td>{{$kelas->users->name}}</td> 
+                                                        <td>
+                                                            <a href="/kelas/{{ $kelas->id }}/edit-kelas"
+                                                                class="btn btn-outline-warning btn-sm">Edit</a>
+                                                            <a href="/kelas/{{ $kelas->id }}/hapus-kelas"
+                                                                class="btn btn-outline-danger btn-sm">Hapus</a>
+                                                        </td>
+                                                    </tr>
                                                     @endforeach
                                                 </tbody>
                                             </table>

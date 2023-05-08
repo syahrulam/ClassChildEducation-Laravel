@@ -80,6 +80,16 @@ Dashboard
                                         </span>
                                     </div>
                                 </div>
+                                <div class="form-group col-6">
+                                    <label>Pilih Roles</label>
+                                    <div class="input-group">
+                                        <select class="form-control select choose" name="admin_akses" id="admin_akses">
+                                            <option value="">-- Hak Akses --</option>
+                                            <option value="0">Guru</option>
+                                            <option value="1">Administrator</option>
+                                        </select>
+                                    </div>
+                                </div>
                                 <div class="col-md-12">
                                     <div class="form-actions float-right">
                                         <button type="reset" name="Reset" class="btn btn-danger"

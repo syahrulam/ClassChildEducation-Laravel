@@ -2,7 +2,9 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Api\MasukController;
+use App\Http\Controllers\Api\ApiGuruController;
+use App\Http\Controllers\Api\ApiSoalController;
+use App\Http\Controllers\Api\ApiSiswaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,5 +23,15 @@ use App\Http\Controllers\Api\MasukController;
 //     return $request->user();
 // });
 
-Route::post('login',[MasukController::class,'login']);
-Route::get('details',[MasukController::class,'userDetails'])->middleware(['auth:sanctum','ability:siswa']);
+Route::post('login/siswa',[ApiSiswaController::class,'loginSiswa']);
+Route::get('detail/siswa',[ApiSiswaController::class,'siswaDetails'])->middleware(['auth:sanctum','ability:siswa']);
+
+Route::post('login/guru',[ApiGuruController::class,'loginGuru']);
+
+Route::get('/soal', [ApiSoalController::class, 'index']);
+Route::get('/soal/{id}/id', [ApiSoalController::class, 'show']);
+Route::post('/soal-prosestambah', [ApiSoalController::class, 'store']);
+Route::post('/soal/{id}/update', [ApiSoalController::class, 'update']);
+Route::get('/soal/{id}/hapus-soal', [ApiSoalController::class, 'destroy']);
+  
+

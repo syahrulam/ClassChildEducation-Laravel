@@ -59,13 +59,26 @@ Dashboard
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <a class="text-dark">Kelas<a class='red'> *</a></a>
-                                        <input class="form-control input-bb" type="text" name="kelas" id="kelas"
-                                            value="{{ old('kelas') }}" />
-                                        <span style="color:red">
-                                            @error('kelas')
-                                                {{ $message }}
-                                            @enderror
-                                        </span>
+                                        <div class="input-group">
+                                            <select class="form-control select choose" name="kelas_id" id="kelas_id">
+                                                <option value=""> -- Pilih Kelas -- </option>
+                                                <option value="1">B</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <a class="text-dark">Tahun Akademik<a class='red'> *</a></a>
+                                        <div class="input-group">
+                                            <select class="form-control select choose" name="tahunakademik" id="tahunakademik">
+                                                <option value=""> -- Pilih Tahun Ajaran -- </option>
+                                                <option value="2023/2024 - Ganjil">2023/2024 - Ganjil</option>
+                                                <option value="2023/2024 - Genap">2023/2024 - Genap</option>
+                                                <option value="2024/2025 - Ganjil">2024/2025 - Ganjil</option>
+                                                <option value="2024/2025 - Genap">2024/2025 - Genap</option>
+                                            </select>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="col-md-6">

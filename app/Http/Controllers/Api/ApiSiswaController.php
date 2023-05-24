@@ -16,7 +16,7 @@ class ApiSiswaController extends Controller
             'nis' => 'required',
             'password' => 'required',
         ]);
-
+        
         if ($validation->fails()) {
             return response()->json(['error' => $validation->errors()],422);
         }
@@ -26,6 +26,8 @@ class ApiSiswaController extends Controller
             return response()->json(['token' => $token]);
 
         }
+        
+        // return Auth::guard('siswa')->attempt(['nis' => $input['nis'],'password' => $input['password']]);
     }
 
     public function siswaDetails()

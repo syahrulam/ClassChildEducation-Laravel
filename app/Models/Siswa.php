@@ -13,7 +13,7 @@ class Siswa extends Authenticatable
 
     protected $guard = 'siswa';
     protected $table = 'siswa';
-    protected $fillable = ['nis','password','namasiswa','kelas_id','tahunakademik'];
+    protected $fillable = ['nis','password','namasiswa','kelas_id'];
 
     public function game()
     {
